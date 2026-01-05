@@ -1,21 +1,17 @@
-#include <iostream>
-#include <ctime>
+#include<iostream>
 using namespace std;
 
-long long int fibonacci(int n) {
-    if (n <= 1)
-        return n;
-    return fibonacci(n - 1) + fibonacci(n - 2);
+int gcd(int x, int y);
+
+int main(){
+    int x, y;
+    cin >> x >> y;
+    cout << gcd(x,y);
+    return 0; 
 }
 
-int main() {
-    clock_t start = clock();
-
-    cout << "Result: " << fibonacci(50) << "\n";
-
-    clock_t end = clock();
-    double elapsed = double(end - start) / CLOCKS_PER_SEC;
-
-    cout << "Elapsed Time: " << elapsed << " seconds.";
-    return 0;
+int gcd(int x, int y){
+    if(x % y == 0)
+        return y;
+    return gcd(y, x % y);
 }
